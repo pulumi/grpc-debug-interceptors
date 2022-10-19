@@ -33,14 +33,8 @@ import (
 
 // Logs all gRPC converations in JSON format.
 //
-// To enable, PULUMI_DEBUG_GRPC must be set, pointing to a file to
-// append logs to.
-//
-// For example:
-//
-//     PULUMI_DEBUG_GPRC=grpc.json pulumi preview
-//     jq . grpc.json
-//
+// To enable, call InitDebugInterceptors first in your process main to
+// configure the location of the Go file.
 func DebugServerInterceptor() grpc.UnaryServerInterceptor {
 	return debugInterceptorInstance.interceptor()
 }
